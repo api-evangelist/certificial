@@ -1,18 +1,78 @@
 aid: certificial
 name: Certificial
-description: 'Certificial is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Certificial operates the Smart COI Network, a real-time certificate
+  of insurance (COI) tracking, issuance and compliance platform used by requestors,
+  insureds, and insurance agents and brokers. Instead of a static PDF certificate that
+  goes stale the moment a policy changes, Certificial maintains a continuously monitored
+  Smart COI that reflects policy-level changes as they happen and notifies every party
+  to the relationship. The company sells two API products to software platforms — an
+  Insurance Tracking API for pulling real-time, source-verified coverage data and COI
+  documents into a host platform, and a COI Issuance API for InsurTech and agency-management
+  vendors that need to generate and automatically reissue ACORD-form certificates. The
+  platform API is live at my.certificial.com/api/ but is credential-gated, and no public
+  API reference, OpenAPI definition, or developer portal is published — API access is
+  arranged through a sales/reseller conversation.'
+image: https://cdn.prod.website-files.com/61da5f835921f2d8534e64ee/61da631ef7dad474183c7474_certificial_logo.svg
 url: https://raw.githubusercontent.com/api-evangelist/certificial/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-09'
 modified: '2026-08-09'
 tags:
+- Insurance
+- InsurTech
+- Certificate of Insurance
+- Risk Management
+- Compliance
+- Supplier Management
+- Insurance Verification
+- ACORD
 - Company
-apis: []
+apis:
+- name: Certificial Insurance Tracking API
+  description: 'Bi-directional API for technology platforms to request insurance coverage
+    for their customers'' suppliers and receive real-time, source-verified policy data,
+    PDF certificates of insurance and endorsements back into the host platform. Also
+    exposes compliance status against requirements, compliance exceptions and status
+    overrides, and historical coverage-change information.'
+  humanURL: https://www.certificial.com/insurance-tracking-api
+  baseURL: https://my.certificial.com/api/
+  tags:
+  - Insurance
+  - Certificate of Insurance
+  - Compliance
+  x-evidence:
+    note: 'baseURL is the observed platform API root, not a documented product base
+      URL. Probed 2026-08-09 — returns HTTP 401 application/json with a WWW-Authenticate
+      response header of "Token" (Django REST Framework token authentication). Certificial
+      publishes no public API reference or OpenAPI definition for this product.'
+    url: https://my.certificial.com/api/
+    http_status: 401
+  properties:
+  - type: Authentication
+    url: authentication/certificial-authentication.yml
+- name: Certificial COI Issuance API
+  description: 'API for InsurTech platforms and agency-management systems to automate
+    certificate of insurance distribution — generating ACORD 24, 25, 27, 28 and 101
+    forms, automatically reissuing certificates when the underlying schedule or policy
+    information changes, and returning PDF copies for use inside the partner platform.'
+  humanURL: https://www.certificial.com/coi-issuance-api
+  baseURL: https://my.certificial.com/api/
+  tags:
+  - Insurance
+  - Certificate of Insurance
+  - ACORD
+  x-evidence:
+    note: 'baseURL is the observed platform API root, not a documented product base
+      URL. Probed 2026-08-09 — returns HTTP 401 application/json with a WWW-Authenticate
+      response header of "Token". No public API reference or OpenAPI definition is
+      published for this product.'
+    url: https://my.certificial.com/api/
+    http_status: 401
+  properties:
+  - type: Authentication
+    url: authentication/certificial-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -20,4 +80,48 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://www.certificial.com/
+- type: Pricing
+  url: https://www.certificial.com/pricing
+- type: SignUp
+  url: https://my.certificial.com/login
+- type: PrivacyPolicy
+  url: https://www.certificial.com/privacy-policy
+- type: TermsOfService
+  url: https://www.certificial.com/user-eula
+- type: Support
+  url: https://support.certificial.com/portal/en/home
+- type: Blog
+  url: https://www.certificial.com/news
+- type: Authentication
+  url: authentication/certificial-authentication.yml
+- type: Conformance
+  url: conformance/certificial-conformance.yml
+- type: DomainSecurity
+  url: security/certificial-domain-security.yml
+- type: LLMsTxt
+  url: llms/certificial-llms.txt
+x-enrichment:
+  date: '2026-08-09'
+  status: minimal
+  artifacts_added: 5
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: sales-gate
+  detail: >-
+    Certificial markets two APIs (Insurance Tracking and COI Issuance) but publishes
+    no reference for either — both product pages end at a Calendly "Setup a Call to
+    Discuss our API" reseller booking, the 130-URL sitemap contains no developer or
+    docs page, and the live platform API root at my.certificial.com/api/ answers 401
+    with a WWW-Authenticate Token challenge.
+  evidence:
+  - url: https://www.certificial.com/insurance-tracking-api
+    status: 200
+  - url: https://my.certificial.com/api/
+    status: 401
+  - url: https://www.certificial.com/openapi.json
+    status: 404
+  - url: https://www.certificial.com/.well-known/security.txt
+    status: 404
+  checked: '2026-08-09'

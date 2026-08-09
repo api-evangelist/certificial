@@ -42,5 +42,8 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Certificial is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+Certificial operates the Smart COI Network, a real-time certificate of insurance (COI) tracking, issuance and compliance platform for requestors, insureds, and insurance agents and brokers. It markets two APIs to software platforms — an Insurance Tracking API and a COI Issuance API — but publishes no public API reference, OpenAPI definition, or developer portal; API access is arranged through a sales conversation.
+
+- Website: https://www.certificial.com/
+- Insurance Tracking API: https://www.certificial.com/insurance-tracking-api
+- COI Issuance API: https://www.certificial.com/coi-issuance-api

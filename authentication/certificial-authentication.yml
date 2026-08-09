@@ -1,0 +1,58 @@
+generated: '2026-08-09'
+method: probed
+source: https://my.certificial.com/api/
+docs: null
+note: >-
+  Certificial publishes no public authentication documentation and no OpenAPI
+  definition, so this profile is not derived from a spec — it is recorded from a
+  live, anonymous probe of the platform API root. The API root answers HTTP 401
+  with an RFC 7235 WWW-Authenticate challenge naming the "Token" scheme and a
+  JSON body, which is the Django REST Framework TokenAuthentication signature.
+  Credentials are issued through a sales / reseller conversation, not self-serve.
+summary:
+  types:
+  - http
+  api_key_in: []
+  oauth2_flows: []
+  self_service_credentials: false
+  public_docs: false
+schemes:
+- name: TokenAuth
+  type: http
+  scheme: Token
+  in: header
+  parameter_name: Authorization
+  description: >-
+    Observed challenge scheme. The API root returns `WWW-Authenticate: Token`,
+    indicating an opaque API token presented as `Authorization: Token <key>`
+    (Django REST Framework TokenAuthentication). The exact token issuance flow
+    is not publicly documented.
+  confidence: medium
+  sources:
+  - probe:https://my.certificial.com/api/
+negative_findings:
+- probe: https://my.certificial.com/.well-known/openid-configuration
+  result: soft-404
+  note: >-
+    Returns HTTP 200 but serves the single-page-app HTML shell (8403 bytes,
+    text/html) — byte-identical to a nonsense control path. Not an OIDC document.
+- probe: https://my.certificial.com/.well-known/oauth-authorization-server
+  result: soft-404
+  note: Same SPA catch-all shell. No RFC 8414 authorization-server metadata.
+- probe: https://my.certificial.com/api/oauth/token
+  result: 404
+  note: No OAuth token endpoint under the API prefix.
+x-evidence:
+- fetched: '2026-08-09'
+  url: https://my.certificial.com/api/
+  http_status: 401
+  content_type: application/json
+  www_authenticate: Token
+  allow: GET, HEAD, OPTIONS
+  body: '{"detail":"Authentication credentials were not provided."}'
+- fetched: '2026-08-09'
+  url: https://www.certificial.com/insurance-tracking-api
+  http_status: 200
+  note: >-
+    Product page for the Insurance Tracking API. Carries no authentication
+    documentation; the only call to action is "Setup a Call to Discuss our API".

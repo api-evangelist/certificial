@@ -1,0 +1,91 @@
+generated: '2026-08-09'
+method: probed
+source: live probes of certificial.com hosts
+found: 0
+pointer: none
+note: >-
+  Nothing was found. This file is the record of the probe, not a discovery
+  surface — no `WellKnown`, `SecurityTxt`, `APICatalog` or `AgentCard` pointer is
+  wired in apis.yml, and no raw files were saved, because nothing real was served.
+  IMPORTANT for future runs: my.certificial.com is a single-page application whose
+  nginx catch-all answers HTTP 200 with an identical 8403-byte text/html shell for
+  EVERY path, including /.well-known/agent-card.json, /.well-known/agent.json,
+  /openapi.json and /llms.txt. A nonsense control path
+  (/.well-known/definitely-not-a-real-path-xyz123) returned the same 200 and the
+  same 8403 bytes with the same ETag, which is how the false positives were
+  identified. Do not credit any 200 from this host without diffing a control path.
+hosts:
+- host: https://www.certificial.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /openapi.json
+    status: 404
+  - path: /swagger.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+  - path: /robots.txt
+    status: 200
+    note: Contains only a sitemap directive; no disallow rules. Not saved.
+- host: https://my.certificial.com
+  soft_404: true
+  control_path: /.well-known/definitely-not-a-real-path-xyz123
+  control_status: 200
+  control_bytes: 8403
+  control_content_type: text/html
+  documents:
+  - path: /.well-known/security.txt
+    status: 200
+    real: false
+    reason: SPA HTML shell, byte-identical to control
+  - path: /.well-known/agent-card.json
+    status: 200
+    real: false
+    reason: SPA HTML shell, byte-identical to control
+  - path: /.well-known/agent.json
+    status: 200
+    real: false
+    reason: SPA HTML shell, byte-identical to control
+  - path: /.well-known/openid-configuration
+    status: 200
+    real: false
+    reason: SPA HTML shell, byte-identical to control
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    real: false
+    reason: SPA HTML shell, byte-identical to control
+  - path: /.well-known/api-catalog
+    status: 200
+    real: false
+    reason: SPA HTML shell, byte-identical to control
+  - path: /.well-known/ai-plugin.json
+    status: 200
+    real: false
+    reason: SPA HTML shell, byte-identical to control
+  - path: /openapi.json
+    status: 200
+    real: false
+    reason: SPA HTML shell, byte-identical to control
+  - path: /llms.txt
+    status: 200
+    real: false
+    reason: SPA HTML shell, byte-identical to control
+  - path: /api/
+    status: 401
+    real: true
+    reason: >-
+      The one genuine backend response on this host. application/json,
+      WWW-Authenticate Token. Recorded in authentication/certificial-authentication.yml.
