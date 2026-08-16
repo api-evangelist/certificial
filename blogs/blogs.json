@@ -1,0 +1,14 @@
+{
+  "repo": "certificial",
+  "feeds": [
+    {
+      "source": "https://support.certificial.com/portal/en/home",
+      "feed_url": "https://support.certificial.com/portal/en/home",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-08-15T12:22:01Z"
+}
