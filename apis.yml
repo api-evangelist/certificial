@@ -12,6 +12,17 @@ description: 'Certificial operates the Smart COI Network, a real-time certificat
   platform API is live at my.certificial.com/api/ but is credential-gated, and no public
   API reference, OpenAPI definition, or developer portal is published — API access is
   arranged through a sales/reseller conversation.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://cdn.prod.website-files.com/61da5f835921f2d8534e64ee/61da631ef7dad474183c7474_certificial_logo.svg
 url: https://raw.githubusercontent.com/api-evangelist/certificial/refs/heads/main/apis.yml
 x-type: company
