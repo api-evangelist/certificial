@@ -25,6 +25,9 @@ deliveryModel:
   method: derived
 image: https://cdn.prod.website-files.com/61da5f835921f2d8534e64ee/61da631ef7dad474183c7474_certificial_logo.svg
 url: https://raw.githubusercontent.com/api-evangelist/certificial/refs/heads/main/apis.yml
+x-api-posture: no-product-api
+x-api-posture-basis: observed
+x-api-posture-note: "The platform API is live at my.certificial.com/api/ but is credential-gated, and no public API reference, OpenAPI definition, or developer portal is published — API access is arranged through a sales/"
 x-type: company
 x-source: harvest:secondary-market
 specificationVersion: '0.23'
