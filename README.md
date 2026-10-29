@@ -64,8 +64,91 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Certificial operates the Smart COI Network, a real-time certificate of insurance (COI) tracking, issuance and compliance platform for requestors, insureds, and insurance agents and brokers. It markets two APIs to software platforms — an Insurance Tracking API and a COI Issuance API — but publishes no public API reference, OpenAPI definition, or developer portal; API access is arranged through a sales conversation.
+Certificial operates the Smart COI Network, a real-time certificate of insurance (COI) tracking, issuance and compliance platform used by requestors, insureds, and insurance agents and brokers. Instead of a static PDF certificate that goes stale the moment a policy changes, Certificial maintains a continuously monitored Smart COI that reflects policy-level changes as they happen and notifies every party to the relationship. The company sells two API products to software platforms — an Insurance Tracking API for pulling real-time, source-verified coverage data and COI documents into a host platform, and a COI Issuance API for InsurTech and agency-management vendors that need to generate and automatically reissue ACORD-form certificates. The platform API is live at my.certificial.com/api/ but is credential-gated, and no public API reference, OpenAPI definition, or developer portal is published — API access is arranged through a sales/reseller conversation.
 
-- Website: https://www.certificial.com/
-- Insurance Tracking API: https://www.certificial.com/insurance-tracking-api
-- COI Issuance API: https://www.certificial.com/coi-issuance-api
+**Areas:** Insurance · Insurtech · Certificate of Insurance · Risk Management · Compliance · Supplier Management · Insurance Verification · ACORD · Company
+
+## Certificial on APIs.io
+
+Everything profiled for Certificial is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/certificial/](https://apis.io/providers/certificial/)** — or go straight to one of the APIs or properties below.
+
+### APIs (2)
+
+- [Certificial Insurance Tracking API](https://apis.io/apis/certificial/certificial-insurance-tracking-api/) — Bi-directional API for technology platforms to request insurance coverage for their customers' suppliers and receive real-time, source-verified policy data,…
+- [Certificial COI Issuance API](https://apis.io/apis/certificial/certificial-coi-issuance-api/) — API for InsurTech platforms and agency-management systems to automate certificate of insurance distribution — generating ACORD 24, 25, 27, 28 and 101 forms,…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Certificial Authentication](https://apis.io/security/certificial/certificial-authentication/)
+- [Certificial Domain Security](https://apis.io/security/certificial/certificial-domain-security/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.certificial.com/)
+- [Pricing](https://www.certificial.com/pricing)
+- [Sign up](https://my.certificial.com/login)
+- [Support](https://support.certificial.com/portal/en/home)
+- [Blog](https://www.certificial.com/news)
+- [Terms of service](https://www.certificial.com/user-eula)
+- [Privacy policy](https://www.certificial.com/privacy-policy)
+
+## API Evangelist rating
+
+**Kin Score 20.4** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 19.0 |
+| Access clarity | 31.6 |
+
+**Agent readiness 2.5** — human-only
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 21.9** — Insurance
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/certificial/](https://apis.io/providers/certificial/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Certificial: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/certificial/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
